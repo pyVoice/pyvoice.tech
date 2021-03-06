@@ -1,36 +1,38 @@
-"use strict";
+'use strict';
 
 // Load plugins
-const autoprefixer = require("gulp-autoprefixer");
-const browsersync = require("browser-sync").create();
-const cleanCSS = require("gulp-clean-css");
-const del = require("del");
-const gulp = require("gulp");
-const header = require("gulp-header");
-const merge = require("merge-stream");
-const plumber = require("gulp-plumber");
-const rename = require("gulp-rename");
-const sass = require("gulp-sass");
+const autoprefixer = require('gulp-autoprefixer');
+const browsersync = require('browser-sync').create();
+const cleanCSS = require('gulp-clean-css');
+const del = require('del');
+const gulp = require('gulp');
+const header = require('gulp-header');
+const merge = require('merge-stream');
+const plumber = require('gulp-plumber');
+const rename = require('gulp-rename');
+const sass = require('gulp-sass');
 
 // Load package.json for banner
 const pkg = require('./package.json');
 
 // Set the banner content
-const banner = ['/*!\n',
+const banner = [
+  '/*!\n',
   ' * Start Bootstrap - <%= pkg.title %> v<%= pkg.version %> (<%= pkg.homepage %>)\n',
-  ' * Copyright 2013-' + (new Date()).getFullYear(), ' <%= pkg.author %>\n',
-  ' * Licensed under <%= pkg.license %> (https://github.com/StartBootstrap/<%= pkg.name %>/blob/master/LICENSE)\n',
+  ' * Copyright 2013-' + new Date().getFullYear(),
+  ' <%= pkg.author %>\n',
+  ' * Licensed under <%= pkg.license %> (https://github.com/StartBootstrap/<%= pkg.name %>/blob/main/LICENSE)\n',
   ' */\n',
-  '\n'
+  '\n',
 ].join('');
 
 // BrowserSync
 function browserSync(done) {
   browsersync.init({
     server: {
-      baseDir: "./"
+      baseDir: './',
     },
-    port: 3000
+    port: 3000,
   });
   done();
 }
@@ -43,66 +45,82 @@ function browserSyncReload(done) {
 
 // Clean vendor
 function clean() {
-  return del(["./public/vendor/"]);
+  return del(['./public/vendor/']);
 }
 
 // Bring third party dependencies from node_modules into vendor directory
 function modules() {
   // Bootstrap
-  var bootstrap = gulp.src('./node_modules/bootstrap/dist/**/*')
-    .pipe(gulp.dest('./public/vendor/bootstrap'));
+  var bootstrap = gulp.src('./node_modules/bootstrap/dist/**/*').pipe(gulp.dest('./public/vendor/bootstrap'));
   // Font Awesome CSS
-  var fontAwesomeCSS = gulp.src('./node_modules/@fortawesome/fontawesome-free/css/**/*')
+  var fontAwesomeCSS = gulp
+    .src('./node_modules/@fortawesome/fontawesome-free/css/**/*')
     .pipe(gulp.dest('./public/vendor/fontawesome-free/css'));
   // Font Awesome Webfonts
-  var fontAwesomeWebfonts = gulp.src('./node_modules/@fortawesome/fontawesome-free/webfonts/**/*')
+  var fontAwesomeWebfonts = gulp
+    .src('./node_modules/@fortawesome/fontawesome-free/webfonts/**/*')
     .pipe(gulp.dest('./public/vendor/fontawesome-free/webfonts'));
   // jQuery Easing
-  var jqueryEasing = gulp.src('./node_modules/jquery.easing/*.js')
-    .pipe(gulp.dest('./public/vendor/jquery-easing'));
+  var jqueryEasing = gulp.src('./node_modules/jquery.easing/*.js').pipe(gulp.dest('./public/vendor/jquery-easing'));
   // jQuery
-  var jquery = gulp.src([
-      './node_modules/jquery/dist/*',
-      '!./node_modules/jquery/dist/core.js'
-    ])
+  var jquery = gulp
+    .src(['./node_modules/jquery/dist/*', '!./node_modules/jquery/dist/core.js'])
     .pipe(gulp.dest('./public/vendor/jquery'));
   // Simple Line Icons
-  var simpleLineIconsFonts = gulp.src('./node_modules/simple-line-icons/fonts/**')
+  var simpleLineIconsFonts = gulp
+    .src('./node_modules/simple-line-icons/fonts/**')
     .pipe(gulp.dest('./public/vendor/simple-line-icons/fonts'));
-  var simpleLineIconsCSS = gulp.src('./node_modules/simple-line-icons/css/**')
+  var simpleLineIconsCSS = gulp
+    .src('./node_modules/simple-line-icons/css/**')
     .pipe(gulp.dest('./public/vendor/simple-line-icons/css'));
-  return merge(bootstrap, fontAwesomeCSS, fontAwesomeWebfonts, jquery, jqueryEasing, simpleLineIconsFonts, simpleLineIconsCSS);
+  return merge(
+    bootstrap,
+    fontAwesomeCSS,
+    fontAwesomeWebfonts,
+    jquery,
+    jqueryEasing,
+    simpleLineIconsFonts,
+    simpleLineIconsCSS
+  );
 }
 
 // CSS task
 function css() {
   return gulp
-    .src("./scss/**/*.scss")
+    .src('./scss/**/*.scss')
     .pipe(plumber())
-    .pipe(sass({
-      outputStyle: "expanded",
-      includePaths: "./node_modules",
-    }))
-    .on("error", sass.logError)
-    .pipe(autoprefixer({
-      cascade: false
-    }))
-    .pipe(header(banner, {
-      pkg: pkg
-    }))
-    .pipe(gulp.dest("./public/css"))
-    .pipe(rename({
-      suffix: ".min"
-    }))
+    .pipe(
+      sass({
+        outputStyle: 'expanded',
+        includePaths: './node_modules',
+      })
+    )
+    .on('error', sass.logError)
+    .pipe(
+      autoprefixer({
+        cascade: false,
+      })
+    )
+    .pipe(
+      header(banner, {
+        pkg: pkg,
+      })
+    )
+    .pipe(gulp.dest('./public/css'))
+    .pipe(
+      rename({
+        suffix: '.min',
+      })
+    )
     .pipe(cleanCSS())
-    .pipe(gulp.dest("./public/css"))
+    .pipe(gulp.dest('./public/css'))
     .pipe(browsersync.stream());
 }
 
 // Watch files
 function watchFiles() {
-  gulp.watch("./scss/**/*", css);
-  gulp.watch("./**/*.html", browserSyncReload);
+  gulp.watch('./scss/**/*', css);
+  gulp.watch('./**/*.html', browserSyncReload);
 }
 
 // Define complex tasks
