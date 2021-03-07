@@ -1,7 +1,7 @@
 /*!
  * Start Bootstrap - pyVoice v (https://pyvoice.tech/)
  * Copyright 2013-2021 
- * Licensed under MIT (https://github.com/StartBootstrap/pyvoice-dot-tech/blob/master/LICENSE)
+ * Licensed under MIT (https://github.com/StartBootstrap/pyvoice-dot-tech/blob/main/LICENSE)
  */
 
 /*!
@@ -9852,4 +9852,8 @@ header.masthead h1 {
 footer.footer {
   padding-top: 4rem;
   padding-bottom: 4rem;
+}
+
+.masthead h1 {
+  letter-spacing: 1.5px;
 }
