@@ -1,6 +1,11 @@
 {
-  "title": "pyVoice",
+  "title": "Website Oficial",
   "name": "pyvoice-dot-tech",
+  "version": "1.0.0",
+  "author": {
+    "email": "afonso.faisca1@gmail.com",
+    "name": "Afonso Santos"
+  },
   "scripts": {
     "build": "node_modules/.bin/gulp",
     "start": "node_modules/.bin/gulp watch"
