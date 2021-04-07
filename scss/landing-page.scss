@@ -51,7 +51,7 @@ nav.navbar {
 header.masthead {
   position: relative;
   background-color: $gray-800;
-  background: url('../img/bg-masthead.jpg') no-repeat center center;
+  background: url('../img/bg_main.jpg') no-repeat center center;
   @include background-cover;
   padding-top: 6rem;
   padding-bottom: 6rem;
@@ -86,11 +86,28 @@ header.masthead {
   }
   .showcase-img {
     min-height: 30rem;
-    background-size: cover;
+    background-position: 50% 50%;
+    background-size: 50%;
+    background-repeat: no-repeat;
+  }
+  .showcase-img-2 {
+    min-height: 30rem;
+    background-position: 50% 50%;
+    background-size: 40%;
+    background-repeat: no-repeat;
   }
   @media (min-width: 768px) {
     .showcase-text {
       padding: 7rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .showcase-img {
+      background-size: 80%;
+    }
+    .showcase-img-2 {
+      background-size: 65%;
     }
   }
 }
@@ -122,7 +139,7 @@ header.masthead {
 .call-to-action {
   position: relative;
   background-color: $gray-800;
-  background: url('../img/bg-masthead.jpg') no-repeat center center;
+  background: url('../img/bg_main.jpg') no-repeat center center;
   @include background-cover;
   padding-top: 7rem;
   padding-bottom: 7rem;

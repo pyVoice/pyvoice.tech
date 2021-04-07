@@ -6,7 +6,7 @@
     <meta name="description" content="Assistente pessoal, controlado por voz." />
     <meta name="author" content="pyVoice" />
 
-    <title>pyVoice</title>
+    <title>pyVoice - Assistente pessoal, controlado por voz</title>
 
     <link href="css/landing-page.min.css" rel="stylesheet" type="text/css" />
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css" />
@@ -132,10 +132,7 @@
     <section class="showcase">
       <div class="container-fluid p-0">
         <div class="row no-gutters">
-          <div
-            class="col-lg-6 order-lg-2 text-white showcase-img"
-            style="background-image: url('img/bg-masthead.jpg')"
-          ></div>
+          <div class="col-lg-6 order-lg-2 text-white showcase-img" style="background-image: url('img/1.svg')"></div>
           <div class="col-lg-6 order-lg-1 my-auto showcase-text">
             <h2>Interface Amiga do Utilizador</h2>
             <p class="lead mb-0">
@@ -145,7 +142,7 @@
           </div>
         </div>
         <div class="row no-gutters">
-          <div class="col-lg-6 text-white showcase-img" style="background-image: url('img/bg-masthead.jpg')"></div>
+          <div class="col-lg-6 text-white showcase-img-2" style="background-image: url('img/2.svg')"></div>
           <div class="col-lg-6 my-auto showcase-text">
             <h2>Capacidade de Aprendizagem</h2>
             <p class="lead mb-0">
@@ -155,10 +152,7 @@
           </div>
         </div>
         <div class="row no-gutters">
-          <div
-            class="col-lg-6 order-lg-2 text-white showcase-img"
-            style="background-image: url('img/bg-masthead.jpg')"
-          ></div>
+          <div class="col-lg-6 order-lg-2 text-white showcase-img" style="background-image: url('img/3.svg')"></div>
           <div class="col-lg-6 order-lg-1 my-auto showcase-text">
             <h2>Open Source</h2>
             <p class="lead mb-0">
@@ -180,15 +174,11 @@
           </div>
           <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
             <div class="buttons">
-              <a
-                class="btn btn-lg btn-dark"
-                target="_blank"
-                href="https://github.com/pyVoice/pyVoice/wiki/install-from-release"
-              >
+              <a class="btn btn-lg btn-dark" target="_blank" href="https://github.com/pyVoice/pyVoice/wiki/Instalação">
                 <i class="fa fa-laptop mr-2"></i>
                 Executáveis
               </a>
-              <a class="btn btn-lg btn-primary" href="https://github.com/pyVoice/pyVoice/wiki/install-from-source">
+              <a class="btn btn-lg btn-primary" href="https://github.com/pyVoice/pyVoice">
                 <i class="fab fa-github mr-2"></i>
                 Código Fonte
               </a>
@@ -209,10 +199,12 @@
               </li>
               <li class="list-inline-item">&sdot;</li>
               <li class="list-inline-item">
-                <a href="#">Política de Privacidade</a>
+                <a href="https://github.com/pyVoice/pyVoice/issues/new">Reportar um Erro</a>
               </li>
             </ul>
-            <p class="text-muted small mb-4 mb-lg-0">&copy; pyVoice 2021. Todos os direitos reservados.</p>
+            <p class="text-muted small mb-4 mb-lg-0">
+              &copy; pyVoice <span id="year"></span>. Todos os direitos reservados.
+            </p>
           </div>
           <div class="col-lg-6 h-100 text-center text-lg-right my-auto">
             <ul class="list-inline mb-0">
@@ -248,5 +240,10 @@
     <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script>
+      jQuery(() => {
+        $('#year').text(new Date().getFullYear());
+      });
+    </script>
   </body>
 </html>
