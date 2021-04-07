@@ -1,7 +1,7 @@
 /*!
- * Start Bootstrap - pyVoice v (https://pyvoice.tech/)
- * Copyright 2013-2021 
- * Licensed under MIT (https://github.com/StartBootstrap/pyvoice-dot-tech/blob/main/LICENSE)
+ * pyVoice - Website Oficial v1.0.0 (https://pyvoice.tech/)
+ * Copyright 2013-2021 Afonso Santos
+ * Licensed under MIT (https://github.com/pyVoice/pyvoice.tech/blob/main/LICENSE)
  */
 
 /*!
@@ -9764,7 +9764,7 @@ nav.navbar .navbar-brand {
 header.masthead {
   position: relative;
   background-color: #343a40;
-  background: url("../img/bg-masthead.jpg") no-repeat center center;
+  background: url("../img/bg_main_2.jpg") no-repeat center center;
   background-size: cover;
   padding-top: 6rem;
   padding-bottom: 6rem;
@@ -9800,12 +9800,30 @@ header.masthead h1 {
 
 .showcase .showcase-img {
   min-height: 30rem;
-  background-size: cover;
+  background-position: 50% 50%;
+  background-size: 50%;
+  background-repeat: no-repeat;
+}
+
+.showcase .showcase-img-2 {
+  min-height: 30rem;
+  background-position: 50% 50%;
+  background-size: 40%;
+  background-repeat: no-repeat;
 }
 
 @media (min-width: 768px) {
   .showcase .showcase-text {
     padding: 7rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .showcase .showcase-img {
+    background-size: 80%;
+  }
+  .showcase .showcase-img-2 {
+    background-size: 65%;
   }
 }
 
@@ -9833,7 +9851,7 @@ header.masthead h1 {
 .call-to-action {
   position: relative;
   background-color: #343a40;
-  background: url("../img/bg-masthead.jpg") no-repeat center center;
+  background: url("../img/bg_main.jpg") no-repeat center center;
   background-size: cover;
   padding-top: 7rem;
   padding-bottom: 7rem;
