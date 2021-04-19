@@ -174,11 +174,25 @@
           </div>
           <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
             <div class="buttons">
-              <a class="btn btn-lg btn-dark" target="_blank" href="https://github.com/pyVoice/pyVoice/wiki/Instalação">
+              <a
+                class="btn btn-lg btn-dark"
+                target="_blank"
+                href="https://github.com/pyVoice/pyVoice/wiki/Instalação"
+                data-toggle="tooltip"
+                data-placement="top"
+                title="Para utilizadores comuns"
+              >
                 <i class="fa fa-laptop mr-2"></i>
                 Executáveis
               </a>
-              <a class="btn btn-lg btn-primary" target="_blank" href="https://github.com/pyVoice/pyVoice">
+              <a
+                class="btn btn-lg btn-primary"
+                target="_blank"
+                href="https://github.com/pyVoice/pyVoice"
+                data-toggle="tooltip"
+                data-placement="top"
+                title="Para utilizadores avançados"
+              >
                 <i class="fab fa-github mr-2"></i>
                 Código Fonte
               </a>
@@ -240,9 +254,11 @@
     <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="vendor/popperjs/popper.min.js"></script>
     <script>
       jQuery(() => {
         $('#year').text(new Date().getFullYear());
+        $('[data-toggle="tooltip"]').tooltip();
       });
     </script>
   </body>
